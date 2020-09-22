@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  server:
+    environment:
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
+      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
+    container_name: minio
+    image: minio/minio
+    ports:
+      - 9000:9000
+    volumes:
+      - ./data:/data
+      - ./log:/var/log
+    command: server /data
+
+
