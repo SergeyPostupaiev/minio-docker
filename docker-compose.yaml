@@ -9,12 +9,16 @@ services:
       - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     container_name: minio
     image: minio/minio
+    working_dir: /minio
     ports:
       - 9000:9000
     volumes:
       - ./export1:/export1
+      - ./export2:/export2
+      - ./export3:/export3
+      - ./export4:/export4
       - ./log:/var/log
-    command: server http://node{1...2}.local/minio-docker/export1
+    command: server http://node{1...2}.local/export{1...4}
      
 
 
