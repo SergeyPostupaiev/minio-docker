@@ -10,12 +10,9 @@ services:
       - minionet
     volumes:
       - minio1:/myexport
-      - ./log:/var/log
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
-      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
     deploy:
       restart_policy:
@@ -32,12 +29,9 @@ services:
       - minionet
     volumes:
       - minio2:/myexport
-      - ./log:/var/log
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
-      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
     deploy:
       restart_policy:
@@ -54,12 +48,9 @@ services:
       - minionet
     volumes:
       - minio3:/myexport
-      - ./log:/var/log
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
-      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
     deploy:
       restart_policy:
@@ -76,12 +67,9 @@ services:
       - minionet
     volumes:
       - minio4:/myexport
-      - ./log:/var/log
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
-      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
     deploy:
       restart_policy:
@@ -98,12 +86,9 @@ services:
       - minionet
     volumes:
       - minio5:/myexport
-      - ./log:/var/log
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
-      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
     deploy:
       restart_policy:
@@ -120,12 +105,9 @@ services:
       - minionet
     volumes:
       - minio6:/myexport
-      - ./log:/var/log
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
-      - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
     deploy:
       restart_policy:
