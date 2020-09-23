@@ -12,7 +12,7 @@ services:
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport 
+    command: server http://minio1/myexport http://minio2/myexport 
 
   minio2:
     image: minio/minio
@@ -25,20 +25,7 @@ services:
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport 
-
-  minio3:
-    image: minio/minio
-    ports:
-      - "9000"
-    networks:
-      - minionet
-    volumes:
-      - minio3:/myexport
-    environment:
-      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
-      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport 
+    command: server http://minio1/myexport http://minio2/myexport 
 
 networks:
   minionet:
@@ -46,6 +33,5 @@ networks:
 volumes:
   minio1:
   minio2:
-  minio3:
   
     
