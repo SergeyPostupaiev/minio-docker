@@ -15,6 +15,6 @@ services:
       - ./export3:/export3
       - ./export4:/export4
       - ./log:/var/log
-    command: server --net=host http://147.75.32.149/export{1...4} http://147.75.100.73/export{1...4}
+    command: server http://147.75.32.149/export{1...4} http://147.75.100.73/export{1...4}
      
 
