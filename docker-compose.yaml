@@ -9,7 +9,6 @@ services:
       - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     container_name: minio
     image: minio/minio
-    working_dir: /minio
     ports:
       - 9000:9000
     volumes:
