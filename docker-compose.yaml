@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-  server:
+  storage:
     environment:
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
@@ -12,8 +12,9 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - ./data:/data
+      - ./export1:/export1
       - ./log:/var/log
-    command: server /data
+    command: server http://node{1...2}.local/minio-docker/export1
+     
 
 
