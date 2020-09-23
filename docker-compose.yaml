@@ -17,7 +17,7 @@ services:
       - ./export3:/export3
       - ./export4:/export4
       - ./log:/var/log
-    command: server http://node{1...2}.local/export{1...4}
+    command: server http://minio{1...2}/export{1...4}
      
 
 
