@@ -8,7 +8,7 @@ services:
       - MINIO_HTTP_TRACE=${MINIO_HTTP_TRACE}
       - MINIO_PROMETHEUS_AUTH_TYPE=${MINIO_PROMETHEUS_AUTH_TYPE}
     container_name: minio
-    image: minio/minio
+    image: minio/minio:RELEASE.2020-09-17T04-49-20Z
     ports:
       - 9000:9000
     volumes:
@@ -17,7 +17,6 @@ services:
       - ./export3:/export3
       - ./export4:/export4
       - ./log:/var/log
-    command: server http://minio{1...2}/export{1...4}
+    command: server --address :9000 http://147.75.32.149/export{1...4} http://147.75.100.73/export{1...4}
      
-
 
