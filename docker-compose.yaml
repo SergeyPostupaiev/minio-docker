@@ -3,10 +3,9 @@ version: "3"
 services:
 
   minio1:
-    image: minio/minio:RELEASE.2020-09-23T19-18-30Z
-    hostname: webcast
+    image: minio/minio
     ports:
-      - "9001:9000"
+      - "9000:9000"
     networks:
       - minionet
     volumes:
@@ -14,13 +13,12 @@ services:
     environment:
       MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
       MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
-    command: server http://webcast/myexport http://river/myexport 
+    command: server http://minio1/myexport http://minio2/myexport 
 
   minio2:
-    image: minio/minio:RELEASE.2020-09-23T19-18-30Z
-    hostname: river
+    image: minio/minio
     ports:
-      - "9002:9000"
+      - "9000"
     networks:
       - minionet
     volumes:
@@ -28,7 +26,7 @@ services:
     environment:
       MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
       MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
-    command: server http://webcast/myexport http://river/myexport
+    command: server http://minio1/myexport http://minio2/myexport 
 
 networks:
   minionet:
