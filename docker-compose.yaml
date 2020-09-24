@@ -13,7 +13,7 @@ services:
     environment:
       MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
       MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
-    command: server http://minio1/myexport http://minio2/myexport
+    command: server http://minio1/myexport http://minio2/myexport http://minio12/myexport http://minio22/myexport 
 
   minio2:
     image: minio/minio
@@ -26,15 +26,13 @@ services:
     environment:
       MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
       MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
-    command: server http://minio1/myexport http://minio2/myexport 
- 
+    command: server http://minio1/myexport http://minio2/myexport http://minio12/myexport http://minio22/myexport 
+
 networks:
   minionet:
 
 volumes:
   minio1:
   minio2:
-  minio3:
-  minio4:
-  minio5:
-  minio6:
+  minio12:
+  minio22:
