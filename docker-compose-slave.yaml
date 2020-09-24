@@ -1,0 +1,16 @@
+version: '3'
+services:
+  minio:
+    image: minio/minio
+    volumes:
+      - ./data-minio-1:/data-1
+      - ./data-minio-2:/data-2
+      - ./data-minio-3:/data-3
+      - ./data-minio-4:/data-4
+    ports:
+      - "80:80"
+      - "9000:9000"
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio/data-{1...4} http://147.75.32.149/data-{1...4}
