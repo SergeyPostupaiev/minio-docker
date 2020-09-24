@@ -1,0 +1,92 @@
+version: "3"
+
+services:
+
+  minio1:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+    networks:
+      - minionet
+    volumes:
+      - minio1:/myexport
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
+
+  minio2:
+    image: minio/minio
+    ports:
+      - "9000"
+    networks:
+      - minionet
+    volumes:
+      - minio2:/myexport
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
+  
+  minio3:
+    image: minio/minio
+    ports:
+      - "9000"
+    networks:
+      - minionet
+    volumes:
+      - minio3:/myexport
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
+  
+  minio4:
+    image: minio/minio
+    ports:
+      - "9000"
+    networks:
+      - minionet
+    volumes:
+      - minio4:/myexport
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
+
+  minio5:
+    image: minio/minio
+    ports:
+      - "9000"
+    networks:
+      - minionet
+    volumes:
+      - minio5:/myexport
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
+  
+  minio6:
+    image: minio/minio
+    ports:
+      - "9000"
+    networks:
+      - minionet
+    volumes:
+      - minio6:/myexport
+    environment:
+      MINIO_ACCESS_KEY: 6b4535c9d0545e036d5a
+      MINIO_SECRET_KEY: f50a73124f5699570beb9ad44cd940
+    command: server http://minio1/myexport http://minio2/myexport http://minio3/myexport http://minio4/myexport http://minio5/myexport http://minio6/myexport
+   
+networks:
+  minionet:
+
+volumes:
+  minio1:
+  minio2:
+  minio3:
+  minio4:
+  minio5:
+  minio6:
