@@ -1,3 +1,14 @@
+insert inside `http` in your `nginx.conf`
+```
+proxy_connect_timeout       300;
+proxy_send_timeout          300;
+proxy_read_timeout          300;
+send_timeout                300;
+client_max_body_size 1000G;
+```
+
+add to you site config (for example `./sites-available/default`)
+```
 server {
     listen 9000 ssl;
     server_name minio.codeda.com;
@@ -15,3 +26,4 @@ server {
         proxy_redirect off;
     }
 }
+```
